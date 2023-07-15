@@ -1,3 +1,7 @@
+
+<img>![가보자고](https://github.com/wecode-bootcamp-korea/47-2nd-gabozaGo-frontend/assets/107941176/4caee549-2400-4de6-b396-59ed66cf5b96)
+
+
 # 가보자GO
 - 위치를 기반으로 목적지 및 현위치 근처의 다양한 물놀이를 소개및 예약해주는 사이트
 
