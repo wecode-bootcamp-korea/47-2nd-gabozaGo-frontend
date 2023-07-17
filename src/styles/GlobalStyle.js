@@ -6,7 +6,12 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-
+    font-family: 'Do Hyeon', sans-serif;
+    text-decoration: none;
+    font-size: 0.625rem;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
   }
 `;
 
