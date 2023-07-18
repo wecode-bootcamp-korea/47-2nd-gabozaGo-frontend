@@ -25,7 +25,7 @@ const Nav = () => {
             value={searchText}
             onChange={handlnput}
           />
-          <Link to="/users/signin">
+          <Link to="/login">
             <LoginBtn>로그인</LoginBtn>
           </Link>
         </NavList>
