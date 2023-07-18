@@ -1,0 +1,103 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "서핑",
+      "product": [
+        {
+          "id": 1,
+          "name": "가게이름이라고",
+          "images": "images/1.png",
+          "rating": 3
+        },
+        {
+          "id": 2,
+          "name": "퍼플피플파플",
+          "images": "images/2.png",
+          "rating": 2
+        },
+        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
+        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
+        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
+        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
+        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
+        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "패러세일링",
+      "product": [
+        { "id": 1, "name": "가게이름1", "images": "images/3.png", "rating": 3 },
+        {
+          "id": 2,
+          "name": "내맘대로 간다",
+          "images": "images/1.png",
+          "rating": 2
+        },
+        { "id": 3, "name": "이름3", "images": "images/2.png", "rating": 4 },
+        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
+        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
+        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
+        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
+        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "글램핑",
+      "product": [
+        { "id": 1, "name": "가게이름1", "images": "images/1.png", "rating": 3 },
+        { "id": 2, "name": "이름2", "images": "images/2.png", "rating": 2 },
+        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
+        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
+        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
+        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
+        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
+        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "수상스키",
+      "product": [
+        { "id": 1, "name": "가게이름1", "images": "images/1.png", "rating": 3 },
+        { "id": 2, "name": "이름2", "images": "images/2.png", "rating": 2 },
+        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
+        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
+        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
+        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
+        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
+        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "요트",
+      "product": [
+        { "id": 1, "name": "가게이름1", "images": "images/1.png", "rating": 3 },
+        { "id": 2, "name": "이름2", "images": "images/2.png", "rating": 2 },
+        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
+        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
+        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
+        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
+        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
+        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "제트스키",
+      "product": [
+        { "id": 1, "name": "가게이름1", "images": "images/1.png", "rating": 3 },
+        { "id": 2, "name": "이름2", "images": "images/2.png", "rating": 2 },
+        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
+        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
+        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
+        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
+        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
+        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      ]
+    }
+  ]
+}

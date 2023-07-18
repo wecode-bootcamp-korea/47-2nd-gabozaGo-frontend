@@ -16,7 +16,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    border: none;
+    border-radius: 0.5em;
     cursor: pointer;
+    color: white;
+    background-color: #5ac4c8;
+
+    &:hover {
+    background-color: #0073cf;
+    color:white
+  }
   }
 
   input {
@@ -29,6 +38,15 @@ const GlobalStyle = createGlobalStyle`
   img{
     display:block;
     border:0;
+  }
+
+  .slick-slide {
+    display: flex !important;
+    justify-content: center;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    background-color: white;
+
   }
 `;
 
