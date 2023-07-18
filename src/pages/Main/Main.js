@@ -1,7 +1,9 @@
+import Carousel from '../../components/Carousel/Carousel';
+
 const Main = () => {
   return (
     <div className="main">
-      <p>Hellot im Main</p>
+      <Carousel />
     </div>
   );
 };
