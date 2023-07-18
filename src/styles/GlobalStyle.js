@@ -1,17 +1,34 @@
 import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
-  ${reset}
-
   * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Do Hyeon', sans-serif;
-    text-decoration: none;
-    font-size: 0.625rem;
-    margin: 0px;
-    padding: 0px;
+  }
+
+  ul,li {
     list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  input {
+    background-color: transparent;
+    outline: none;
+    font-size: 1em;
+    vertical-align: middle;
+  }
+
+  img{
+    display:block;
+    border:0;
   }
 `;
 
