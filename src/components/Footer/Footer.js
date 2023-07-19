@@ -57,7 +57,7 @@ export default Footer;
 
 const FooterBody = styled.footer`
   width: 100%;
-  background-color: #0ac7ce;
+  background-color: ${props => props.theme.mainColor};
 `;
 
 const FooterInner = styled.div`
