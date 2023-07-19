@@ -6,6 +6,7 @@ import Nav from './components/Nav/Nav';
 import Login from './pages/Login/Login';
 import Oauth from './pages/Login/Oauth';
 import Signup from './pages/Login/Signup';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/oauth" element={<Oauth />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/productDetail" element={<ProductDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>
