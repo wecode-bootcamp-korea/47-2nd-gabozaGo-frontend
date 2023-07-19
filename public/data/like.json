@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": 3,
+      "name": "물놀이이름",
+      "images": "images/1.png",
+      "location": "북동부",
+      "price": 50000
+    },
+    {
+      "id": 1,
+      "name": "물놀이이름",
+      "images": "images/2.png",
+      "location": "남동부",
+      "price": 40000
+    },
+    {
+      "id": 3,
+      "name": "물놀이이름",
+      "images": "images/3.png",
+      "location": "제주도",
+      "price": 300000
+    }
+  ]
+}

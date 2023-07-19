@@ -7,6 +7,7 @@ import Login from './pages/Login/Login';
 import Oauth from './pages/Login/Oauth';
 import Signup from './pages/Login/Signup';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
+import Like from './pages/Like/Like';
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/oauth" element={<Oauth />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/like" element={<Like />} />
       </Routes>
       <Footer />
     </BrowserRouter>
