@@ -1,4 +1,4 @@
-import { styled, createGlobalStyle } from 'styled-components';
+import { styled } from 'styled-components';
 import { ImStarFull } from 'react-icons/im';
 import useStar from '../../hooks/useStar';
 

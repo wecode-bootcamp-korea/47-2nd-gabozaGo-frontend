@@ -9,6 +9,7 @@ import Signup from './pages/Login/Signup';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import PayResult from './pages/Pay/PayResult';
 import Pay from './pages/Pay/Pay';
+import Calendar from './pages/Calendar/Calendar';
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/productDetail" element={<ProductDetail />} />
         <Route path="/payResult" element={<PayResult />} />
         <Route path="/pay" element={<Pay />} />
+        <Route path="/reservation" element={<Calendar />} />
       </Routes>
       <Footer />
     </BrowserRouter>
