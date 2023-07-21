@@ -1,9 +1,34 @@
 {
-  "location": [
-    { "id": 1, "name": "북동부" },
-    { "id": 2, "name": "동남부" },
-    { "id": 3, "name": "남서부" },
-    { "id": 4, "name": "남동부" },
-    { "id": 5, "name": "제주도" }
+  "data": [
+    {
+      "id": 1,
+      "name": "전체",
+      "images": "images/gangwon.png"
+    },
+    {
+      "id": 2,
+      "name": "동북부",
+      "images": "images/gangwon.png"
+    },
+    {
+      "id": 3,
+      "name": "동남부",
+      "images": "images/busan.png"
+    },
+    {
+      "id": 4,
+      "name": "서북부",
+      "images": "images/ganghwa.png"
+    },
+    {
+      "id": 5,
+      "name": "서남부",
+      "images": "images/jindo.png"
+    },
+    {
+      "id": 6,
+      "name": "제주도",
+      "images": "images/jeju.png"
+    }
   ]
 }
