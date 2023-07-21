@@ -1,7 +1,6 @@
 import { styled, createGlobalStyle } from 'styled-components';
 import Comment from '../Review/Comment';
-
-// import Review from '../Review/Review';
+import Review from '../Review/Review';
 
 const ProductDetail = () => {
   return (
@@ -34,7 +33,7 @@ const ProductDetail = () => {
             <CompanyText>1000원</CompanyText>
           </DetailText>
         </ItemBox>
-        {/*<Review /> */}
+        <Review />
       </ProductBox>
       <Comment />
     </ProductDetailBody>
