@@ -4,9 +4,16 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
+import FindLocation from '../Location/Location';
+import { useSearchParams } from 'react-router-dom';
 
-const Main = () => {
+const Main = ({ match }) => {
   const [product, setProduct] = useState([]);
+  const [modal, setModal] = useState(false);
+  const [spot, setSpot] = useState([]);
+  // const token = localStorage.getItem('token');
+  const [selectedSpot, setSelectedSpot] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const productsSetting = {
     rows: 1,
@@ -18,30 +25,47 @@ const Main = () => {
   };
 
   useEffect(() => {
+    const params = new URLSearchParams();
+    selectedSpot && params.set('spotId', `${selectedSpot}`);
+    setSearchParams(params);
     fetch('data/productList.json')
       .then(res => res.json())
       .then(data => setProduct(data.data));
-  }, []);
+  }, [selectedSpot]);
 
   return (
     <MainBody>
       <MainCarouselBox>
         <Carousel />
         <LocationBox>
-          <Location>📍 다른 지역 찾아보기</Location>
+          <LocationBtn onClick={() => setModal(true)}>
+            📍 다른 지역 찾아보기
+          </LocationBtn>
+          <ModalBox>
+            {modal && (
+              <FindLocation
+                setModal={setModal}
+                selectedSpot={selectedSpot}
+                setSelectedSpot={setSelectedSpot}
+                spot={spot}
+                setSpot={setSpot}
+                modal={modal}
+              />
+            )}
+          </ModalBox>
         </LocationBox>
       </MainCarouselBox>
       {product.map(info => (
-        <TagListBox key={info.id}>
-          <TagName> {info.name}</TagName>
+        <TagListBox key={info.productId}>
+          <TagName> {info.activityName}</TagName>
           <Border>
             <CustomSlider {...productsSetting}>
-              {info.product.map(productInfo => (
-                <Product key={productInfo.id}>
-                  <ProductImage src={productInfo.images} alt="product" />
-                  <Rating>⭐ {productInfo.rating}</Rating>
+              {info.stores.map(el => (
+                <Product key={el.storeId}>
+                  <ProductImage src={el.Image} alt="product" />
+                  <Rating>⭐ {el.scoreAvg}</Rating>
                   <Description>
-                    <ProductText>{productInfo.name}</ProductText>
+                    <ProductText>{el.storeName}</ProductText>
                   </Description>
                 </Product>
               ))}
@@ -77,14 +101,14 @@ const Border = styled.div`
   background-color: white;
 `;
 
-const Location = styled.button`
+const LocationBtn = styled.button`
   color: white;
   position: absolute;
   top: 12.5em;
   left: 45%;
   z-index: 10;
   font-size: 1.5em;
-  background-color: #449e9d;
+  background-color: #44899e;
   height: 2.6em;
   width: 10em;
   border: none;
@@ -169,21 +193,29 @@ const ProductText = styled.p`
 
 const Rating = styled.p`
   position: relative;
-  width: 3em;
-  height: 2.3em;
+  width: 3.3em;
+  height: 1.9em;
   font-size: 0.7em;
   z-index: 9999;
-  left: 8.4em;
-  top: -2.3em;
+  left: 8.1em;
+  top: -1.9em;
   padding: 5px;
   background-color: #313131;
   opacity: 0.9;
   color: white;
   border-radius: 0.5em 0 0.5em 0;
+  text-align: center;
 `;
 
 const ProductImage = styled.img`
   width: 8em;
   height: 8em;
   border-radius: 0.5em;
+`;
+
+const ModalBox = styled.div`
+  position: absolute;
+  z-index: 9999;
+  left: 25%;
+  top: 1%;
 `;

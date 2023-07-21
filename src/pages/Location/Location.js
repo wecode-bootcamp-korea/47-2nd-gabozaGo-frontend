@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const Location = () => {
-  const [spot, setSpot] = useState([]);
-  const [selectedSpot, setSelectedSpot] = useState(null);
-
+const FindLocation = ({
+  setModal,
+  selectedSpot,
+  spot,
+  setSpot,
+  setSelectedSpot,
+  modal,
+}) => {
   useEffect(() => {
     fetch('data/location.json')
       .then(res => res.json())
@@ -13,8 +17,8 @@ const Location = () => {
       });
   }, []);
 
-  const handleSpotClick = spotId => {
-    setSelectedSpot(spotId);
+  const handleSpotClick = e => {
+    setSelectedSpot(e.target.value);
   };
 
   return (
@@ -22,34 +26,44 @@ const Location = () => {
       <LocationBox>
         <LocationList>
           <ModalTitle>위치 찾기</ModalTitle>
-          <MapBox>
-            <Locations>
-              {spot.map(info => (
-                <SelectBox key={info.id}>
-                  <List>
-                    <SpotTitle>
-                      <LocationBtn onClick={() => handleSpotClick(info.id)}>
-                        {info.name}
-                      </LocationBtn>
-                    </SpotTitle>
-                  </List>
-                  <KaKaoMapBox>
-                    {selectedSpot === info.id && (
-                      <LocationImage src={info.images} alt="위치이미지" />
-                    )}
-                  </KaKaoMapBox>
-                </SelectBox>
-              ))}
-            </Locations>
-          </MapBox>
-          <SelectBtn> 선택완료</SelectBtn>
+
+          <Locations>
+            {spot.map(info => (
+              <SelectBox key={info.id}>
+                <LocationBtn
+                  value={info.id}
+                  name="spot"
+                  onClick={e => {
+                    handleSpotClick(e);
+                  }}
+                  style={{
+                    background: `${
+                      info.id === Number(selectedSpot) ? '#0073cf' : '#9cd3fc'
+                    }`,
+                  }}
+                >
+                  {info.name}
+                </LocationBtn>
+
+                <KaKaoMapBox>
+                  {Number(selectedSpot) === info.id && (
+                    <LocationImage src={info.images} alt="위치이미지" />
+                  )}
+                </KaKaoMapBox>
+              </SelectBox>
+            ))}
+          </Locations>
+
+          {modal && (
+            <SelectBtn onClick={() => setModal(false)}> 선택완료</SelectBtn>
+          )}
         </LocationList>
       </LocationBox>
     </LocationBody>
   );
 };
 
-export default Location;
+export default FindLocation;
 
 const LocationBody = styled.div`
   display: flex;
@@ -68,55 +82,39 @@ const LocationList = styled.div`
   flex-direction: column;
   border-radius: 0.5em;
   font-size: 2.5em;
+  background-color: #f0f0f3;
   box-shadow: 1px 2px 2px 2px #d8d8d8;
 `;
 
 const Locations = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 0.2em;
+  position: relative;
 `;
 
 const ModalTitle = styled.h1`
   padding: 0.5em;
   font-size: 0.8em;
-  border-bottom: 1px solid #d8d8d8;
   text-align: center;
   width: 13.5em;
 `;
 
 const SelectBox = styled.div`
   display: flex;
-  width: 3em;
-`;
-
-const List = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const SpotTitle = styled.div`
-  margin-top: 0.2em;
-  padding-left: 0.4em;
-  width: 2.5em;
-  height: 1em;
-  justify-content: center;
-  align-items: center;
-  display: flex;
 `;
 
 const LocationBtn = styled.button`
-  font-size: 0.5em;
-  width: 4em;
-  padding: 0.3em 0;
-`;
-
-const MapBox = styled.div`
-  display: flex;
+  padding: 8px 16px;
+  width: 10em;
+  height: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 `;
 
 const KaKaoMapBox = styled.div`
-  width: 8em;
-  height: 10em;
+  width: 9.5em;
 `;
 
 const SelectBtn = styled.button`
@@ -132,6 +130,6 @@ const LocationImage = styled.img`
   border-radius: 0.3em;
   padding: 5px;
   position: absolute;
-  top: 28%;
-  left: 38%;
+  top: -2%;
+  left: 35%;
 `;
