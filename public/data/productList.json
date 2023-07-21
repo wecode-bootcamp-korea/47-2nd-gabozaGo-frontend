@@ -1,102 +1,623 @@
 {
   "data": [
     {
-      "id": 1,
-      "name": "서핑",
-      "product": [
+      "activityId": 1,
+      "activityName": "서핑",
+      "stores": [
         {
-          "id": 1,
-          "name": "가게이름이라고",
-          "images": "images/1.png",
-          "rating": 3
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_58.jpg",
+          "spotId": 4,
+          "storeId": 281,
+          "scoreAvg": 4.5,
+          "storeName": "시원한 레저타운 "
         },
         {
-          "id": 2,
-          "name": "퍼플피플파플",
-          "images": "images/2.png",
-          "rating": 2
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_57.jpg",
+          "spotId": 4,
+          "storeId": 283,
+          "scoreAvg": 4.5,
+          "storeName": "시원한 레저타운 "
         },
-        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
-        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
-        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
-        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
-        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
-        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "패러세일링",
-      "product": [
-        { "id": 1, "name": "가게이름1", "images": "images/3.png", "rating": 3 },
         {
-          "id": 2,
-          "name": "내맘대로 간다",
-          "images": "images/1.png",
-          "rating": 2
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_54.jpg",
+          "spotId": 4,
+          "storeId": 261,
+          "scoreAvg": 4.3,
+          "storeName": "다양한 레저센터 "
         },
-        { "id": 3, "name": "이름3", "images": "images/2.png", "rating": 4 },
-        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
-        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
-        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
-        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
-        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_76.jpg",
+          "spotId": 5,
+          "storeId": 371,
+          "scoreAvg": 4.3,
+          "storeName": "신나는 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_51.jpg",
+          "spotId": 4,
+          "storeId": 251,
+          "scoreAvg": 4.3,
+          "storeName": "편안한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_53.jpg",
+          "spotId": 4,
+          "storeId": 261,
+          "scoreAvg": 4.3,
+          "storeName": "다양한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_52.jpg",
+          "spotId": 4,
+          "storeId": 251,
+          "scoreAvg": 4.3,
+          "storeName": "편안한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_75.jpg",
+          "spotId": 5,
+          "storeId": 371,
+          "scoreAvg": 4.3,
+          "storeName": "신나는 레저센터 "
+        }
       ]
     },
     {
-      "id": 3,
-      "name": "글램핑",
-      "product": [
-        { "id": 1, "name": "가게이름1", "images": "images/1.png", "rating": 3 },
-        { "id": 2, "name": "이름2", "images": "images/2.png", "rating": 2 },
-        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
-        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
-        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
-        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
-        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
-        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      "activityId": 2,
+      "activityName": "배낚시",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_14.jpg",
+          "spotId": 1,
+          "storeId": 62,
+          "scoreAvg": 4.5,
+          "storeName": "고품질의 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_13.jpg",
+          "spotId": 1,
+          "storeId": 62,
+          "scoreAvg": 4.5,
+          "storeName": "고품질의 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_72.jpg",
+          "spotId": 5,
+          "storeId": 352,
+          "scoreAvg": 4.3,
+          "storeName": "다양한 주현이네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_71.jpg",
+          "spotId": 5,
+          "storeId": 352,
+          "scoreAvg": 4.3,
+          "storeName": "다양한 주현이네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_54.jpg",
+          "spotId": 4,
+          "storeId": 262,
+          "scoreAvg": 4.2,
+          "storeName": "모던한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_53.jpg",
+          "spotId": 4,
+          "storeId": 262,
+          "scoreAvg": 4.2,
+          "storeName": "모던한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_36.jpg",
+          "spotId": 3,
+          "storeId": 172,
+          "scoreAvg": 4.2,
+          "storeName": "친절한 레저타운 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_49.jpg",
+          "spotId": 4,
+          "storeId": 242,
+          "scoreAvg": 4.2,
+          "storeName": "편리한 레저센터 "
+        }
       ]
     },
     {
-      "id": 4,
-      "name": "수상스키",
-      "product": [
-        { "id": 1, "name": "가게이름1", "images": "images/1.png", "rating": 3 },
-        { "id": 2, "name": "이름2", "images": "images/2.png", "rating": 2 },
-        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
-        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
-        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
-        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
-        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
-        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      "activityId": 3,
+      "activityName": "요트",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_05.jpg",
+          "spotId": 1,
+          "storeId": 23,
+          "scoreAvg": 4.3,
+          "storeName": "모던한 놀이터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_06.jpg",
+          "spotId": 1,
+          "storeId": 23,
+          "scoreAvg": 4.3,
+          "storeName": "모던한 놀이터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_50.jpg",
+          "spotId": 4,
+          "storeId": 243,
+          "scoreAvg": 4.2,
+          "storeName": "활기찬 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_49.jpg",
+          "spotId": 4,
+          "storeId": 243,
+          "scoreAvg": 4.2,
+          "storeName": "활기찬 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_07.jpg",
+          "spotId": 1,
+          "storeId": 33,
+          "scoreAvg": 4.2,
+          "storeName": "고품질의 레저타운 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_08.jpg",
+          "spotId": 1,
+          "storeId": 33,
+          "scoreAvg": 4.2,
+          "storeName": "고품질의 레저타운 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_43.jpg",
+          "spotId": 3,
+          "storeId": 213,
+          "scoreAvg": 4,
+          "storeName": "따뜻한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_44.jpg",
+          "spotId": 3,
+          "storeId": 213,
+          "scoreAvg": 4,
+          "storeName": "따뜻한 레저센터 "
+        }
       ]
     },
     {
-      "id": 5,
-      "name": "요트",
-      "product": [
-        { "id": 1, "name": "가게이름1", "images": "images/1.png", "rating": 3 },
-        { "id": 2, "name": "이름2", "images": "images/2.png", "rating": 2 },
-        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
-        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
-        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
-        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
-        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
-        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      "activityId": 4,
+      "activityName": "글램핑",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_56.jpg",
+          "spotId": 4,
+          "storeId": 274,
+          "scoreAvg": 4.3,
+          "storeName": "따뜻한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_55.jpg",
+          "spotId": 4,
+          "storeId": 274,
+          "scoreAvg": 4.3,
+          "storeName": "따뜻한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_62.jpg",
+          "spotId": 4,
+          "storeId": 304,
+          "scoreAvg": 4.2,
+          "storeName": "다양한 주현이네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_61.jpg",
+          "spotId": 4,
+          "storeId": 304,
+          "scoreAvg": 4.2,
+          "storeName": "다양한 주현이네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_59.jpg",
+          "spotId": 4,
+          "storeId": 294,
+          "scoreAvg": 4,
+          "storeName": "따뜻한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_05.jpg",
+          "spotId": 1,
+          "storeId": 24,
+          "scoreAvg": 4,
+          "storeName": "모던한 주현이네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_06.jpg",
+          "spotId": 1,
+          "storeId": 24,
+          "scoreAvg": 4,
+          "storeName": "모던한 주현이네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_60.jpg",
+          "spotId": 4,
+          "storeId": 294,
+          "scoreAvg": 4,
+          "storeName": "따뜻한 레저센터 "
+        }
       ]
     },
     {
-      "id": 6,
-      "name": "제트스키",
-      "product": [
-        { "id": 1, "name": "가게이름1", "images": "images/1.png", "rating": 3 },
-        { "id": 2, "name": "이름2", "images": "images/2.png", "rating": 2 },
-        { "id": 3, "name": "이름3", "images": "images/3.png", "rating": 4 },
-        { "id": 4, "name": "이름4", "images": "images/4.png", "rating": 1 },
-        { "id": 5, "name": "이름5", "images": "images/5.png", "rating": 4 },
-        { "id": 6, "name": "이름6", "images": "images/6.png", "rating": 5 },
-        { "id": 7, "name": "이름7", "images": "images/7.png", "rating": 4 },
-        { "id": 8, "name": "이름7", "images": "images/8.png", "rating": 3 }
+      "activityId": 5,
+      "activityName": "수상스키",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ski_01.jpg",
+          "spotId": 1,
+          "storeId": 5,
+          "scoreAvg": 4.3,
+          "storeName": "다양한 놀이터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ski_02.jpg",
+          "spotId": 1,
+          "storeId": 5,
+          "scoreAvg": 4.3,
+          "storeName": "다양한 놀이터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ski_27.jpg",
+          "spotId": 2,
+          "storeId": 135,
+          "scoreAvg": 4.3,
+          "storeName": "편리한 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ski_60.jpg",
+          "spotId": 4,
+          "storeId": 295,
+          "scoreAvg": 4.3,
+          "storeName": "모던한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ski_59.jpg",
+          "spotId": 4,
+          "storeId": 295,
+          "scoreAvg": 4.3,
+          "storeName": "모던한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ski_28.jpg",
+          "spotId": 2,
+          "storeId": 135,
+          "scoreAvg": 4.3,
+          "storeName": "편리한 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ski_03.jpg",
+          "spotId": 1,
+          "storeId": 15,
+          "scoreAvg": 4.2,
+          "storeName": "활기찬 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ski_04.jpg",
+          "spotId": 1,
+          "storeId": 15,
+          "scoreAvg": 4.2,
+          "storeName": "활기찬 동희네 "
+        }
+      ]
+    },
+    {
+      "activityId": 6,
+      "activityName": "유람선",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/U_05.jpg",
+          "spotId": 1,
+          "storeId": 26,
+          "scoreAvg": 4.7,
+          "storeName": "모던한 놀이터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/U_06.jpg",
+          "spotId": 1,
+          "storeId": 26,
+          "scoreAvg": 4.7,
+          "storeName": "모던한 놀이터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/U_33.jpg",
+          "spotId": 3,
+          "storeId": 166,
+          "scoreAvg": 4.3,
+          "storeName": "다양한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/U_34.jpg",
+          "spotId": 3,
+          "storeId": 166,
+          "scoreAvg": 4.3,
+          "storeName": "다양한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/U_03.jpg",
+          "spotId": 1,
+          "storeId": 16,
+          "scoreAvg": 4.2,
+          "storeName": "고급스러운 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/U_04.jpg",
+          "spotId": 1,
+          "storeId": 16,
+          "scoreAvg": 4.2,
+          "storeName": "고급스러운 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/U_07.jpg",
+          "spotId": 1,
+          "storeId": 36,
+          "scoreAvg": 4.2,
+          "storeName": "고품질의 준수네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/U_08.jpg",
+          "spotId": 1,
+          "storeId": 36,
+          "scoreAvg": 4.2,
+          "storeName": "고품질의 준수네 "
+        }
+      ]
+    },
+    {
+      "activityId": 7,
+      "activityName": "카약",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ka_68.jpg",
+          "spotId": 5,
+          "storeId": 337,
+          "scoreAvg": 4.8,
+          "storeName": "시원한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ka_67.jpg",
+          "spotId": 5,
+          "storeId": 337,
+          "scoreAvg": 4.8,
+          "storeName": "시원한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ka_48.jpg",
+          "spotId": 3,
+          "storeId": 237,
+          "scoreAvg": 4.5,
+          "storeName": "다양한 준수네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ka_47.jpg",
+          "spotId": 3,
+          "storeId": 237,
+          "scoreAvg": 4.5,
+          "storeName": "다양한 준수네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ka_28.jpg",
+          "spotId": 2,
+          "storeId": 137,
+          "scoreAvg": 4.3,
+          "storeName": "편안한 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ka_27.jpg",
+          "spotId": 2,
+          "storeId": 137,
+          "scoreAvg": 4.3,
+          "storeName": "편안한 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ka_34.jpg",
+          "spotId": 3,
+          "storeId": 167,
+          "scoreAvg": 4.2,
+          "storeName": "친절한 액티비티 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Ka_33.jpg",
+          "spotId": 3,
+          "storeId": 167,
+          "scoreAvg": 4.2,
+          "storeName": "친절한 액티비티 "
+        }
+      ]
+    },
+    {
+      "activityId": 8,
+      "activityName": "스쿠버다이빙",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Diver_47.jpg",
+          "spotId": 3,
+          "storeId": 238,
+          "scoreAvg": 4.3,
+          "storeName": "행복한 놀이터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Diver_48.jpg",
+          "spotId": 3,
+          "storeId": 238,
+          "scoreAvg": 4.3,
+          "storeName": "행복한 놀이터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Diver_79.jpg",
+          "spotId": 5,
+          "storeId": 398,
+          "scoreAvg": 4.3,
+          "storeName": "친절한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Diver_80.jpg",
+          "spotId": 5,
+          "storeId": 398,
+          "scoreAvg": 4.3,
+          "storeName": "친절한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Diver_26.jpg",
+          "spotId": 2,
+          "storeId": 128,
+          "scoreAvg": 4.2,
+          "storeName": "친절한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Diver_75.jpg",
+          "spotId": 5,
+          "storeId": 378,
+          "scoreAvg": 4.2,
+          "storeName": "신나는 액티비티센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Diver_25.jpg",
+          "spotId": 2,
+          "storeId": 128,
+          "scoreAvg": 4.2,
+          "storeName": "친절한 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Diver_76.jpg",
+          "spotId": 5,
+          "storeId": 378,
+          "scoreAvg": 4.2,
+          "storeName": "신나는 액티비티센터 "
+        }
+      ]
+    },
+    {
+      "activityId": 9,
+      "activityName": "제트스키",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Jet_72.jpg",
+          "spotId": 5,
+          "storeId": 359,
+          "scoreAvg": 4.3,
+          "storeName": "따뜻한 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Jet_71.jpg",
+          "spotId": 5,
+          "storeId": 359,
+          "scoreAvg": 4.3,
+          "storeName": "따뜻한 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Jet_45.jpg",
+          "spotId": 3,
+          "storeId": 229,
+          "scoreAvg": 4.2,
+          "storeName": "활기찬 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Jet_37.jpg",
+          "spotId": 3,
+          "storeId": 189,
+          "scoreAvg": 4.2,
+          "storeName": "다양한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Jet_41.jpg",
+          "spotId": 3,
+          "storeId": 209,
+          "scoreAvg": 4.2,
+          "storeName": "고품질의 동희네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Jet_46.jpg",
+          "spotId": 3,
+          "storeId": 229,
+          "scoreAvg": 4.2,
+          "storeName": "활기찬 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Jet_38.jpg",
+          "spotId": 3,
+          "storeId": 189,
+          "scoreAvg": 4.2,
+          "storeName": "다양한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Jet_70.jpg",
+          "spotId": 5,
+          "storeId": 349,
+          "scoreAvg": 4.2,
+          "storeName": "독특한 레저타운 "
+        }
+      ]
+    },
+    {
+      "activityId": 10,
+      "activityName": "패러세일링",
+      "stores": [
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_34.jpg",
+          "spotId": 3,
+          "storeId": 170,
+          "scoreAvg": 4.7,
+          "storeName": "독특한 주현이네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_33.jpg",
+          "spotId": 3,
+          "storeId": 170,
+          "scoreAvg": 4.7,
+          "storeName": "독특한 주현이네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_14.jpg",
+          "spotId": 1,
+          "storeId": 70,
+          "scoreAvg": 4.2,
+          "storeName": "독특한 준수네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_19.jpg",
+          "spotId": 2,
+          "storeId": 100,
+          "scoreAvg": 4.2,
+          "storeName": "따뜻한 레저센터 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_13.jpg",
+          "spotId": 1,
+          "storeId": 70,
+          "scoreAvg": 4.2,
+          "storeName": "독특한 준수네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_38.jpg",
+          "spotId": 3,
+          "storeId": 190,
+          "scoreAvg": 4.2,
+          "storeName": "시원한 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_37.jpg",
+          "spotId": 3,
+          "storeId": 190,
+          "scoreAvg": 4.2,
+          "storeName": "시원한 수정네 "
+        },
+        {
+          "Image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_20.jpg",
+          "spotId": 2,
+          "storeId": 100,
+          "scoreAvg": 4.2,
+          "storeName": "따뜻한 레저센터 "
+        }
       ]
     }
   ]

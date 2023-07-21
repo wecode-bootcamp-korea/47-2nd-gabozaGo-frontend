@@ -55,5 +55,5 @@ const CarouselBox = styled.div`
 
 const Image = styled.img`
   width: 100vw;
-  height: 40em;
+  height: 41em;
 `;
