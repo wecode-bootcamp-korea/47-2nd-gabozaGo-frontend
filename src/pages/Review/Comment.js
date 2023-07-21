@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-
 import { useState, useEffect } from 'react';
+import { ImStarFull } from 'react-icons/im';
 
 const Comment = () => {
   const [comment, setComment] = useState([]);
@@ -11,22 +11,38 @@ const Comment = () => {
       .then(data => setComment(data.data));
   }, []);
 
+  const arr = [1, 2, 3, 4, 5];
+
   return (
     <CommentBody>
       <CommentBox>
         <UserProfile>
-          {comment.map(info => (
-            <UserInfo key={info.id}>
-              <RowDiv>
-                <ProfileBox>
-                  <UserImg src={info.images} />
-                  <UserName>{info.userName}</UserName>
-                </ProfileBox>
-                <UserRating>{info.rating} 점</UserRating>
-              </RowDiv>
-              <UserComment>{info.userComment}</UserComment>
-            </UserInfo>
-          ))}
+          {comment.map(info => {
+            return (
+              <UserInfo key={info.id}>
+                <RowDiv>
+                  <ProfileBox>
+                    <UserImg src={info.images} />
+                    <UserName>{info.userName}</UserName>
+                  </ProfileBox>
+                  <AllStarBox>
+                    <AllStar filled={true}>
+                      {arr.map((ele, idx) => {
+                        return <ImStarFull key={idx} />;
+                      })}
+                    </AllStar>
+                    <BlueStar filled={true}>
+                      {Array.from({ length: info.rating }, idx => (
+                        <ImStarFull key={idx} />
+                      ))}
+                    </BlueStar>
+                  </AllStarBox>
+                  <UserRating>{info.rating} 점</UserRating>
+                </RowDiv>
+                <UserComment>{info.userComment}</UserComment>
+              </UserInfo>
+            );
+          })}
         </UserProfile>
       </CommentBox>
     </CommentBody>
@@ -93,21 +109,43 @@ const UserRating = styled.div`
   font-weight: bold;
   & svg {
     color: #f2f3f7;
-    cursor: pointer;
-  }
-
-  .yellowStar {
-    color: #fcc419;
+    cursor: default;
   }
 `;
 
 const UserComment = styled.p`
   width: 100%;
-
   font-size: 1.1em;
   font-weight: bold;
   margin-top: 1.2em;
   padding-bottom: 30px;
   border-bottom: 1px solid #e4e5ed;
   color: #605969;
+`;
+
+const AllStar = styled.div`
+  display: flex;
+  svg {
+    font-size: 1.3em;
+    path {
+      color: ${props => (props.star ? props.theme.gabozaColor : 'lightgray')};
+      cursor: default;
+    }
+  }
+`;
+
+const AllStarBox = styled.div`
+  position: relative;
+`;
+
+const BlueStar = styled.div`
+  position: absolute;
+  top: 0%;
+  svg {
+    font-size: 1.3em;
+    path {
+      color: ${props => props.theme.gabozaColor};
+      cursor: default;
+    }
+  }
 `;
