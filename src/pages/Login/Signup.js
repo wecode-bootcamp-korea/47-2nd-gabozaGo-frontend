@@ -49,7 +49,7 @@ const Signup = () => {
   }, []);
 
   const addInfo = () => {
-    fetch('http://10.58.52.101:3000/users/info', {
+    fetch('http://10.58.52.209:3000/users/info', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
