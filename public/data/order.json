@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "useIid": 10,
+      "product": {
+        "id": 1,
+        "name": "상품이름",
+        "images": "images/1.png",
+        "spotName": "북동부",
+        "price": 300000,
+        "headCount": 6
+      }
+    }
+  ]
+}

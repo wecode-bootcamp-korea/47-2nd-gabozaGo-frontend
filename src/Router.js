@@ -7,8 +7,8 @@ import Login from './pages/Login/Login';
 import Oauth from './pages/Login/Oauth';
 import Signup from './pages/Login/Signup';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-import Like from './pages/Like/Like';
 import PayResult from './pages/Pay/PayResult';
+import Pay from './pages/Pay/Pay';
 
 const Router = () => {
   return (
@@ -20,8 +20,8 @@ const Router = () => {
         <Route path="/oauth" element={<Oauth />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/productDetail" element={<ProductDetail />} />
-        <Route path="/like" element={<Like />} />
         <Route path="/payResult" element={<PayResult />} />
+        <Route path="/pay" element={<Pay />} />
       </Routes>
       <Footer />
     </BrowserRouter>
