@@ -2,6 +2,7 @@
   "data": [
     {
       "id": 3,
+      "productId": 2,
       "name": "물놀이이름",
       "images": "images/1.png",
       "location": "북동부",
@@ -9,13 +10,15 @@
     },
     {
       "id": 1,
+      "productId": 3,
       "name": "물놀이이름",
       "images": "images/2.png",
       "location": "남동부",
       "price": 40000
     },
     {
-      "id": 3,
+      "id": 2,
+      "productId": 4,
       "name": "물놀이이름",
       "images": "images/3.png",
       "location": "제주도",

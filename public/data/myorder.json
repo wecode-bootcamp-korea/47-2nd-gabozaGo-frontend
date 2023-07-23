@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "orderNumber": "12313-123123-23123-12312",
+      "orderStatus": "진행중",
+      "images": "images/1.png",
+      "name": "서핑가자고",
+      "price": 50000,
+      "likeSpot": "제주도 속초시",
+      "tag": "패러세일링",
+      "date": "2023-07-01",
+      "phoneNumebr": "010-1234-1234",
+      "headCount": 3
+    },
+    {
+      "id": 1,
+      "orderNumber": "12313-123123-23656-12312",
+      "orderStatus": "만기됨",
+      "images": "images/3.png",
+      "name": "파도타다 사망",
+      "price": 120000,
+      "likeSpot": "북동부 속초시",
+      "tag": "파도타기",
+      "date": "2023-07-01",
+      "phoneNumebr": "010-4321-1234",
+      "headCount": 3
+    }
+  ]
+}
