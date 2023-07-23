@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 0.5em;
     cursor: pointer;
     color: white;
-    background-color: #5ac4c8;
+    background-color: ${props => props.theme.mainColor};
 
     &:hover {
     background-color: #0073cf;

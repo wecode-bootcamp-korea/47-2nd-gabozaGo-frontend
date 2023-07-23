@@ -1,19 +1,26 @@
-import { styled, createGlobalStyle } from 'styled-components';
+import { styled } from 'styled-components';
 import { useState, useEffect } from 'react';
 
 const Like = () => {
-  const [Like, setLike] = useState([]);
+  const [Likes, setLikes] = useState([]);
+
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     fetch('data/like.json')
       .then(res => res.json())
-      .then(data => setLike(data.data));
+      .then(data => setLikes(data.data));
   }, []);
+
+  const handleDelete = id => {
+    const newLike = Like.filter(item => item.id !== id);
+    setLikes(newLike);
+  };
 
   return (
     <LikeBody>
       <LikeIBox>
-        {Like.map(info => (
+        {Likes.map(info => (
           <LikeInfo key={info.id}>
             <LikeIImage src={info.images} />
             <RowDiv>
@@ -22,7 +29,7 @@ const Like = () => {
               <ProductInfo>{info.price} 원</ProductInfo>
             </RowDiv>
             <ColumnDiv>
-              <DeleteBtn>✕</DeleteBtn>
+              <DeleteBtn onClick={() => handleDelete(info.id)}>✕</DeleteBtn>
               <GotoDatailBtn>상세페이지로</GotoDatailBtn>
             </ColumnDiv>
           </LikeInfo>
@@ -37,17 +44,15 @@ export default Like;
 const LikeBody = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #f0f0f3;
 `;
 
 const LikeIBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 44em;
+
   background-color: white;
   margin: 1em 0;
-  box-shadow: 1px 1px 3px #d8d8d8;
 `;
 
 const LikeInfo = styled.div`
@@ -55,15 +60,18 @@ const LikeInfo = styled.div`
   flex-direction: row;
   align-items: flex-start;
   align-items: center;
-  margin: 0.5em 0.3em;
-  height: 10em;
+  margin: 0.5em;
+  padding: 1em;
+  height: 11em;
+  width: 40em;
   border-bottom: 1px solid #f0f0f0;
+  box-shadow: 1px 1px 3px #d8d8d8;
 `;
 
 const LikeIImage = styled.img`
-  width: 7em;
-  height: 7em;
-  border-radius: 50%;
+  width: 9em;
+  height: 9em;
+  border-radius: 0.5em;
   margin-right: 1em;
 `;
 
