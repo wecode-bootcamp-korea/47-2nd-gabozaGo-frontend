@@ -37,19 +37,19 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    fetch('data/location.json')
+    fetch('http://10.58.52.222:3000/spots')
       .then(res => res.json())
-      .then(data => setLocation(data.location));
+      .then(data => setLocation(data.data));
   }, []);
 
   useEffect(() => {
-    fetch('data/tags.json')
+    fetch('http://10.58.52.224:3000/activities')
       .then(res => res.json())
-      .then(data => setTag(data.tags));
+      .then(data => setTag(data.data));
   }, []);
 
   const addInfo = () => {
-    fetch('http://10.58.52.209:3000/users/info', {
+    fetch('http://10.58.52.224:3000/users/info', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -89,7 +89,7 @@ const Signup = () => {
         <SelectBox>
           <SelectTitle>가고싶은 여행지를 선택해주세요. (필수 1개)</SelectTitle>
           <TagBox>
-            {location.map(({ id, name }) => {
+            {location?.map(({ id, name }) => {
               return (
                 <TagList key={id}>
                   <Tag

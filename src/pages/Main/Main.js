@@ -5,17 +5,18 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
 import FindLocation from '../Location/Location';
-import { useNavigate, useSearchParams, useParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
-const Main = ({ match }) => {
+const Main = () => {
   const [product, setProduct] = useState([]);
   const [modal, setModal] = useState(false);
   const [spot, setSpot] = useState([]);
-  // const token = localStorage.getItem('token');
-  const [selectedSpot, setSelectedSpot] = useState(1);
+  const token = localStorage.getItem('token');
+  const [selectedSpot, setSelectedSpot] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
   const navigate = useNavigate();
+
   const gotoDetail = id => {
     navigate(`/productDetail/${id}`);
   };
@@ -32,8 +33,17 @@ const Main = ({ match }) => {
   useEffect(() => {
     const params = new URLSearchParams();
     selectedSpot && params.set('spotId', `${selectedSpot}`);
+    selectedSpot && params.get('spotId');
     setSearchParams(params);
-    fetch('data/productList.json')
+    const headers = {
+      'Content-Type': 'application/json;charset=utf-8',
+    };
+    if (token) {
+      headers.authorization = token;
+    }
+    fetch(`http://10.58.52.224:3000/storeActivities/?spotId=${selectedSpot}`, {
+      headers,
+    })
       .then(res => res.json())
       .then(data => setProduct(data.data));
   }, [selectedSpot]);
@@ -67,13 +77,14 @@ const Main = ({ match }) => {
             <CustomSlider {...productsSetting}>
               {info.stores.map(el => (
                 <Product
-                  onClick={() => gotoDetail(info.productId)}
-                  key={el.storeId}
+                  onClick={() => gotoDetail(el.storeActivityId)}
+                  key={el.storeActivityId}
                 >
                   <ProductImage src={el.Image} alt="product" />
                   <Rating>⭐ {el.scoreAvg}</Rating>
                   <Description>
                     <ProductText>{el.storeName}</ProductText>
+                    <ProductText>{el.spotId}</ProductText>
                   </Description>
                 </Product>
               ))}
