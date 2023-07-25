@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FindLocation = ({
@@ -10,7 +11,7 @@ const FindLocation = ({
   modal,
 }) => {
   useEffect(() => {
-    fetch('data/location.json')
+    fetch('/data/location.json')
       .then(res => res.json())
       .then(data => {
         setSpot(data.data);
@@ -28,6 +29,12 @@ const FindLocation = ({
           <ModalTitle>위치 찾기</ModalTitle>
 
           <Locations>
+            <LocationBtn
+              colorCondition={selectedSpot === ''}
+              onClick={() => setSelectedSpot('')}
+            >
+              전체
+            </LocationBtn>
             {spot.map(info => (
               <SelectBox key={info.id}>
                 <LocationBtn
@@ -36,16 +43,13 @@ const FindLocation = ({
                   onClick={e => {
                     handleSpotClick(e);
                   }}
-                  style={{
-                    background: `${
-                      info.id === Number(selectedSpot) ? '#0073cf' : '#9cd3fc'
-                    }`,
-                  }}
+                  colorCondition={info.id === Number(selectedSpot)}
                 >
                   {info.name}
                 </LocationBtn>
 
                 <KaKaoMapBox>
+                  <LocationImage src="/images/korea.png" alt="위치이미지" />
                   {Number(selectedSpot) === info.id && (
                     <LocationImage src={info.images} alt="위치이미지" />
                   )}
@@ -111,6 +115,7 @@ const LocationBtn = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  background: ${props => (props.colorCondition ? '#0073cf' : '#9cd3fc')};
 `;
 
 const KaKaoMapBox = styled.div`
@@ -122,6 +127,8 @@ const SelectBtn = styled.button`
   height: 3.4em;
   margin: 1em 0;
   font-size: 0.4em;
+  background: ${props =>
+    props === Number(props.selectedSpot) ? '#0073cf' : '#9cd3fc'};
 `;
 
 const LocationImage = styled.img`

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import GlobalStyle from '../../styles/GlobalStyle';
 import { useState } from 'react';
@@ -8,8 +8,11 @@ const Nav = () => {
 
   const token = localStorage.getItem('token');
 
+  const navigate = useNavigate();
+
   const logout = () => {
     localStorage.removeItem('token');
+    navigate('/');
   };
 
   const handlnput = e => {
@@ -104,7 +107,8 @@ const LikeIcon = styled.img`
   align-items: center;
   margin-left: 25em;
   position: absolute;
-  left: 65%;
+  top: 2%;
+  left: 63%;
   width: 24px;
   height: 24px;
 `;
