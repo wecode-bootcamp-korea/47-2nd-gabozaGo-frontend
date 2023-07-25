@@ -1,0 +1,18 @@
+{
+  "data": {
+    "storeActivityId": 1,
+    "activityName": "서핑",
+    "spotId": 1,
+    "StoreName": "시원한 레저센터",
+    "phoneNumber": "99999999999",
+    "postNumber": "99999",
+    "price": "70000.00",
+    "storeAddress": "강원도 속초시",
+    "description": "즐거운 레저체험",
+    "scoreAvg": "4.2",
+    "imageUrls": [
+      "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_01.jpg",
+      "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_02.jpg"
+    ]
+  }
+}

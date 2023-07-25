@@ -1,36 +1,36 @@
-import { styled, createGlobalStyle } from 'styled-components';
+import { styled } from 'styled-components';
 import Comment from '../Review/Comment';
 import Review from '../Review/Review';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const ProductDetail = () => {
-  const params = useParams(); // 1
-  const userId = params.id;
-  const [user, setUser] = useState();
+  // const params = useParams();
+  // const activityId = params.id;
+  const [activity, setActivity] = useState();
 
   useEffect(() => {
-    fetch(`https://reqres.in/api/users/${userId}`) // 3
-      .then(response => response.json())
-      .then(result => setUser(result.data));
-  }, [userId]);
+    fetch('/data/detail.json')
+      // fetch(`https://reqres.in/api/detailMain/${activityId}`)
+      .then(res => res.json())
+      .then(data => setActivity(data.data));
+  }, []);
+
+  const price = activity?.price.slice(0, 5);
 
   return (
     <ProductDetailBody>
       <ProductBox>
         <ItemBox>
-          <MainImage src="images/img2.jpg" alt="itemImage" />
+          <MainImage src={activity?.imageUrls[1]} alt="itemImage" />
           <ItemDescriptionBox>
-            <ItemName>제주도 크루저여행</ItemName>
+            <ItemName>{activity?.StoreName}</ItemName>
             <ItemDescription>
-              <Tag> 제주도</Tag>
-              &nbsp;| &nbsp;
-              <Tag> 유람선</Tag>
+              <Tag> {activity?.activityName}</Tag>
             </ItemDescription>
-            <Description>제주도에서 울릉도까지 초호화 크루즈여행</Description>
+            <Description>{activity?.description}</Description>
             <Rating>
-              <Description>만족도 : ㅇㅇ 점</Description>
-              &nbsp;★★★★☆
+              <Description>만족도 : {activity?.scoreAvg} 점</Description>
             </Rating>
             <RowDiv>
               <LikeButton>찜</LikeButton>
@@ -39,10 +39,10 @@ const ProductDetail = () => {
             </RowDiv>
           </ItemDescriptionBox>
           <DetailText>
-            <CompanyText>(주)뱃사공</CompanyText>
-            <CompanyText>000-0000-0000</CompanyText>
-            <CompanyText>제주도 읍면리 크루저마을</CompanyText>
-            <CompanyText>1000원</CompanyText>
+            <CompanyText>{activity?.StoreName}</CompanyText>
+            <CompanyText>{activity?.phoneNumber}</CompanyText>
+            <CompanyText>{activity?.city}</CompanyText>
+            <CompanyText>{price} 원</CompanyText>
           </DetailText>
         </ItemBox>
         <Review />

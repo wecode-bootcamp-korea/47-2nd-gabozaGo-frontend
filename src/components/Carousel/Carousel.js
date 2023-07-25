@@ -18,7 +18,7 @@ const Carousel = () => {
   };
 
   useEffect(() => {
-    fetch('data/carousel.json')
+    fetch('/data/carousel.json')
       .then(response => response.json())
       .then(data => setCarousel(data.data));
   }, []);

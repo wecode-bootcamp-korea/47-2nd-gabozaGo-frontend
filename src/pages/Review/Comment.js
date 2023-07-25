@@ -6,7 +6,7 @@ const Comment = () => {
   const [comment, setComment] = useState([]);
 
   useEffect(() => {
-    fetch('data/comment.json')
+    fetch('/data/comment.json')
       .then(res => res.json())
       .then(data => setComment(data.data));
   }, []);
@@ -19,7 +19,7 @@ const Comment = () => {
         <UserProfile>
           {comment.map(info => {
             return (
-              <UserInfo key={info.id}>
+              <UserInfo key={`comment-${info.id}`}>
                 <RowDiv>
                   <ProfileBox>
                     <UserImg src={info.images} />

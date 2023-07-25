@@ -25,7 +25,7 @@ const Nav = () => {
         <NavList>
           <Logo>
             <Link to="/">
-              <LogoImage src="images/logo.png" />
+              <LogoImage src="/images/logo.png" />
             </Link>
           </Logo>
           <SearchBar
