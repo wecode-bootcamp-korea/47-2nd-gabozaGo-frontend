@@ -4,11 +4,12 @@ import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 import { useState } from 'react';
 
-const Calander = () => {
+const BookingCalandar = () => {
   const [value, onChange] = useState(new Date());
   const token = localStorage.getItem('token');
   const bookingCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const originDate = new Date().toISOString().slice(0, 10);
+  const [showAlert, setShowAlert] = useState(false);
 
   fetch('data/booking.json')
     .then(res => res.json())
@@ -55,7 +56,10 @@ const Calander = () => {
                 ))}
               </Select>
             </SelectBox>
-            <AlertText>예약가능한 인원수를 초과하였습니다.</AlertText>
+            <TotalPrice>총가격 : 300000원</TotalPrice>
+            {showAlert && (
+              <AlertText>예약가능한 인원수를 초과하였습니다.</AlertText>
+            )}
           </ProductBox>
           <OrderBtn onClick={sendBooking}>결제하기</OrderBtn>
         </BookSelectContainer>
@@ -65,16 +69,19 @@ const Calander = () => {
   );
 };
 
-export default Calander;
+export default BookingCalandar;
 
 const CalanderBody = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  z-index: 9999;
 `;
 
 const BookingBox = styled.div`
-  width: 45em;
+  width: 50em;
+  height: 30em;
   display: flex;
   justify-content: center;
   padding: 2em;
@@ -82,7 +89,7 @@ const BookingBox = styled.div`
 `;
 
 const CalanderBox = styled.div`
-  width: 26em;
+  width: 30em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,6 +149,11 @@ const AlertText = styled.p`
   color: red;
 `;
 
+const TotalPrice = styled.p`
+  font-size: 1em;
+  margin-top: 1em;
+`;
+
 const OrderBtn = styled.button`
   width: 10em;
   height: 3em;
@@ -157,9 +169,10 @@ const CloseBox = styled.button`
 
 const CustomCalendar = styled(Calendar)`
   border: none;
+  width: 28em;
 
   .react-calendar__navigation__label__labelText {
-    font-size: 1.3em;
+    font-size: 1.4em;
     color: black;
   }
 
@@ -175,7 +188,7 @@ const CustomCalendar = styled(Calendar)`
   }
 
   .react-calendar__month-view__weekdays {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   .react-calendar__tile--now {
@@ -186,6 +199,15 @@ const CustomCalendar = styled(Calendar)`
   .react-calendar__tile--active {
     background: ${props => props.theme.mainColor} !important;
     border-radius: 10em;
+  }
+
+  .react-calendar__month-view {
+    height: 20em;
+  }
+
+  .react-calendar__month-view__days__day {
+    font-size: 1em;
+    padding: 1em 0;
   }
 
   .react-calendar__month-view__weekdays {

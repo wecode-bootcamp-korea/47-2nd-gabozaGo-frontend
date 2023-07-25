@@ -3,11 +3,17 @@ import Comment from '../Review/Comment';
 import Review from '../Review/Review';
 // import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import BookingCalandar from '../BookingCalandar/BookingCalandar';
 
 const ProductDetail = () => {
   // const params = useParams();
   // const activityId = params.id;
   const [activity, setActivity] = useState();
+  const price = Number(activity?.price.slice(0, 5)).toLocaleString();
+  const phoneNumber = activity?.phoneNumber.replace(
+    /^(\d{2,3})(\d{3,4})(\d{4})$/,
+    `$1-$2-$3`,
+  );
 
   useEffect(() => {
     fetch('/data/detail.json')
@@ -16,7 +22,8 @@ const ProductDetail = () => {
       .then(data => setActivity(data.data));
   }, []);
 
-  const price = activity?.price.slice(0, 5);
+  //예약관련
+  const [modal, setModal] = useState(false);
 
   return (
     <ProductDetailBody>
@@ -24,7 +31,7 @@ const ProductDetail = () => {
         <ItemBox>
           <MainImage src={activity?.imageUrls[1]} alt="itemImage" />
           <ItemDescriptionBox>
-            <ItemName>{activity?.StoreName}</ItemName>
+            <ItemName> {activity?.StoreName}</ItemName>
             <ItemDescription>
               <Tag> {activity?.activityName}</Tag>
             </ItemDescription>
@@ -35,14 +42,17 @@ const ProductDetail = () => {
             <RowDiv>
               <LikeButton>찜</LikeButton>
               <LikeButton>공유하기</LikeButton>
-              <LikeButton>예약하기</LikeButton>
+              <LikeButton onClick={() => setModal(true)}>예약하기</LikeButton>
             </RowDiv>
+            <ModalBox>
+              {modal && <BookingCalandar setModal={setModal} />}/
+            </ModalBox>
           </ItemDescriptionBox>
           <DetailText>
-            <CompanyText>{activity?.StoreName}</CompanyText>
-            <CompanyText>{activity?.phoneNumber}</CompanyText>
-            <CompanyText>{activity?.city}</CompanyText>
-            <CompanyText>{price} 원</CompanyText>
+            <CompanyText>가게 이름 :{activity?.StoreName}</CompanyText>
+            <CompanyText>전화번호 : {phoneNumber}</CompanyText>
+            <CompanyText>가게 위치 : {activity?.storeAddress}</CompanyText>
+            <CompanyText>1인 이용가격 : {price} 원</CompanyText>
           </DetailText>
         </ItemBox>
         <Review />
@@ -152,4 +162,11 @@ const DetailText = styled.div`
 
 const CompanyText = styled.h5`
   font-weight: 600;
+`;
+
+const ModalBox = styled.div`
+  position: absolute;
+  z-index: 9999;
+  left: 25%;
+  top: 20%;
 `;
