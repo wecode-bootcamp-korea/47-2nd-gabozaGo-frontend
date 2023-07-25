@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
 import FindLocation from '../Location/Location';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, useParams } from 'react-router-dom';
 
 const Main = ({ match }) => {
   const [product, setProduct] = useState([]);
@@ -14,6 +14,11 @@ const Main = ({ match }) => {
   // const token = localStorage.getItem('token');
   const [selectedSpot, setSelectedSpot] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const navigate = useNavigate();
+  const gotoDetail = id => {
+    navigate(`/productDetail/${id}`);
+  };
 
   const productsSetting = {
     rows: 1,
@@ -61,7 +66,10 @@ const Main = ({ match }) => {
           <Border>
             <CustomSlider {...productsSetting}>
               {info.stores.map(el => (
-                <Product key={el.storeId}>
+                <Product
+                  onClick={() => gotoDetail(info.productId)}
+                  key={el.storeId}
+                >
                   <ProductImage src={el.Image} alt="product" />
                   <Rating>⭐ {el.scoreAvg}</Rating>
                   <Description>
