@@ -15,7 +15,7 @@ const FOOTER_MEMBER = [
     id: 3,
     name: 'BACK',
     img: 'images/juhyeon.png',
-    github: 'httpshttps://github.com/sioscorial',
+    github: 'https://github.com/sioscorial',
   },
   {
     id: 4,

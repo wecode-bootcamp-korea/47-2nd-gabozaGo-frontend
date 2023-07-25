@@ -16,7 +16,7 @@ const BookingCalandar = () => {
     .then(data => data.data);
 
   const sendBooking = () => {
-    fetch('http://10.58.52.209:3000/order', {
+    fetch('http://10.58.52.222:3000/order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

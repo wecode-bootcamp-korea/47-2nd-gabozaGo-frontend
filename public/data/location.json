@@ -2,31 +2,26 @@
   "data": [
     {
       "id": 1,
-      "name": "전체",
-      "images": "images/korea.png"
-    },
-    {
-      "id": 2,
       "name": "동북부",
       "images": "images/gangwon.png"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "동남부",
       "images": "images/busan.png"
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "서북부",
       "images": "images/ganghwa.png"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "서남부",
       "images": "images/jindo.png"
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "제주도",
       "images": "images/jeju.png"
     }

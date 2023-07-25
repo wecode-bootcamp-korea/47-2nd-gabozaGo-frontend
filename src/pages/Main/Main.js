@@ -33,7 +33,7 @@ const Main = ({ match }) => {
     const params = new URLSearchParams();
     selectedSpot && params.set('spotId', `${selectedSpot}`);
     setSearchParams(params);
-    fetch('data/productList.json')
+    fetch(`http://10.58.52.222:3000/storeActivities/?${selectedSpot}`)
       .then(res => res.json())
       .then(data => setProduct(data.data));
   }, [selectedSpot]);
@@ -68,7 +68,7 @@ const Main = ({ match }) => {
               {info.stores.map(el => (
                 <Product
                   onClick={() => gotoDetail(info.productId)}
-                  key={el.storeId}
+                  key={el.storeActivityId}
                 >
                   <ProductImage src={el.Image} alt="product" />
                   <Rating>⭐ {el.scoreAvg}</Rating>

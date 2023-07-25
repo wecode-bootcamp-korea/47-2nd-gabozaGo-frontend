@@ -8,7 +8,7 @@ const Oauth = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://10.58.52.209:3000/users/signin?code=${CODE}`)
+    fetch(`http://10.58.52.222:3000/users/signin?code=${CODE}`)
       .then(res => res.json())
       .then(data => {
         if (data && data.accessToken.newUser === false) {

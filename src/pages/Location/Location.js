@@ -10,7 +10,7 @@ const FindLocation = ({
   modal,
 }) => {
   useEffect(() => {
-    fetch('data/location.json')
+    fetch('/data/location.json')
       .then(res => res.json())
       .then(data => {
         setSpot(data.data);
