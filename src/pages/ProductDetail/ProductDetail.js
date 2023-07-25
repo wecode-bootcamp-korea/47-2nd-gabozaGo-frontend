@@ -1,8 +1,20 @@
 import { styled, createGlobalStyle } from 'styled-components';
 import Comment from '../Review/Comment';
 import Review from '../Review/Review';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const ProductDetail = () => {
+  const params = useParams(); // 1
+  const userId = params.id;
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    fetch(`https://reqres.in/api/users/${userId}`) // 3
+      .then(response => response.json())
+      .then(result => setUser(result.data));
+  }, [userId]);
+
   return (
     <ProductDetailBody>
       <ProductBox>
