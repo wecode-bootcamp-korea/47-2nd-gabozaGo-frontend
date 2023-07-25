@@ -8,7 +8,7 @@ const Review = () => {
   return (
     <ReviewBody>
       <ReviewBox>
-        <ProfileImage src="images/sujeong.png" />
+        <ProfileImage src="/images/sujeong.png" />
         <InputBox>
           <RowBox>
             <UserName>김수정</UserName>
