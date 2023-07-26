@@ -1,14 +1,17 @@
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import Comment from '../Review/Comment';
 import Review from '../Review/Review';
-// import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import BookingCalandar from '../BookingCalandar/BookingCalandar';
 
 const ProductDetail = () => {
-  // const params = useParams();
-  // const activityId = params.id;
+  const params = useParams();
+  const productId = params.id;
+  const token = localStorage.getItem('token');
   const [activity, setActivity] = useState();
+  const [isLike, setIsLike] = useState(activity?.likes);
   const price = Number(activity?.price.slice(0, 5)).toLocaleString();
   const phoneNumber = activity?.phoneNumber.replace(
     /^(\d{2,3})(\d{3,4})(\d{4})$/,
@@ -16,13 +19,40 @@ const ProductDetail = () => {
   );
 
   useEffect(() => {
-    fetch('/data/detail.json')
-      // fetch(`${process.env.REACT_APP_API_URL}/detailMain/${activityId}`)
+    const headers = {
+      'Content-Type': 'application/json;charset=utf-8',
+    };
+    if (token) {
+      headers.authorization = token;
+    }
+    fetch(`http://10.58.52.89:3000/detailMain/${productId}`, {
+      method: 'GET',
+      headers,
+    })
       .then(res => res.json())
-      .then(data => setActivity(data.data));
-  }, []);
-
+      .then(result => setActivity(result.data));
+  }, [token, productId]);
   //예약관련
+  const handleLike = () => {
+    fetch(`${process.env.REACT_APP_API_URL}/likes/${productId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: token,
+      },
+    })
+      .then(res => res.json())
+      .then(result => console.log(result));
+  };
+
+  const handleLikeButton = () => {
+    setIsLike(prev => !!!prev);
+    if (!token) {
+      return;
+    }
+    handleLike();
+  };
+
   const [modal, setModal] = useState(false);
 
   return (
@@ -40,12 +70,12 @@ const ProductDetail = () => {
               <Description>만족도 : {activity?.scoreAvg} 점</Description>
             </Rating>
             <RowDiv>
-              <LikeButton>찜</LikeButton>
+              <LikeButton onClick={handleLikeButton}>찜</LikeButton>
               <LikeButton>공유하기</LikeButton>
               <LikeButton onClick={() => setModal(true)}>예약하기</LikeButton>
             </RowDiv>
             <ModalBox>
-              {modal && <BookingCalandar setModal={setModal} />}/
+              {modal && <BookingCalandar setModal={setModal} />}
             </ModalBox>
           </ItemDescriptionBox>
           <DetailText>
