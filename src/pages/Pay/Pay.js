@@ -20,7 +20,7 @@ const Pay = () => {
   }, []);
 
   const payPoint = () => {
-    fetch(`http://api주소/orders`, {
+    fetch(`${process.env.REACT_APP_API_URL}/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

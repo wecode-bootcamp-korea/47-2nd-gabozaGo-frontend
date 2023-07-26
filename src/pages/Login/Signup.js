@@ -37,19 +37,19 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.222:3000/spots')
+    fetch(`${process.env.REACT_APP_API_URL}/spots`)
       .then(res => res.json())
       .then(data => setLocation(data.data));
   }, []);
 
   useEffect(() => {
-    fetch('http://10.58.52.224:3000/activities')
+    fetch(`${process.env.REACT_APP_API_URL}/activities`)
       .then(res => res.json())
       .then(data => setTag(data.data));
   }, []);
 
   const addInfo = () => {
-    fetch('http://10.58.52.224:3000/users/info', {
+    fetch(`${process.env.REACT_APP_API_URL}/users/info`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
