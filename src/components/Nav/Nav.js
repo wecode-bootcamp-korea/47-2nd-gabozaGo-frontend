@@ -23,8 +23,6 @@ const Nav = () => {
     setSearchText(e.target.value);
   };
 
-  const gotoLikePage = () => {};
-
   return (
     <>
       <NavBody>
@@ -42,11 +40,7 @@ const Nav = () => {
           />
           {token && (
             <Link to="/mypage">
-              <LikeIcon
-                src="/images/heart.png"
-                alt="찜 아이콘"
-                onClick={gotoLikePage}
-              />
+              <LikeIcon src="/images/heart.png" alt="찜 아이콘" />
             </Link>
           )}
           {token ? (

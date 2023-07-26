@@ -4,8 +4,16 @@ import { useState, useEffect } from 'react';
 const MyOrder = () => {
   const [order, setOrder] = useState([]);
 
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
-    fetch('data/myorder.json')
+    fetch(`${process.env.REACT_APP_API_URL}/reservation/my`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: token,
+      },
+    })
       .then(res => res.json())
       .then(data => setOrder(data.data));
   }, []);
@@ -15,22 +23,30 @@ const MyOrder = () => {
       <MyOrderBox>
         {order.map(info => (
           <MyOrderInfo key={info.id}>
-            <MyOrderIImage src={info.images} />
+            <MyOrderIImage src={info.stores[0]?.imageUrl} />
             <RowDiv>
               <OrderTitle>
                 <ProductInfo>주문번호 : {info.orderNumber}</ProductInfo>
               </OrderTitle>
-              <ProductInfo>가게 명 : {info.name}</ProductInfo>
-              <ProductInfo>전화번호 : {info.phoneNumebr}</ProductInfo>
+              <ProductInfo>가게 명 : {info.stores[0]?.storeName}</ProductInfo>
               <ProductInfo>
-                위치 : {info.likeSpot}, 상품명 : {info.tag}
+                전화번호 :{' '}
+                {(info.stores[0]?.storePhoneNumber).replace(
+                  /^(\d{2,3})(\d{3,4})(\d{4})$/,
+                  `$1-$2-$3`,
+                )}
               </ProductInfo>
-              <ProductInfo>결제가격 : {info.price} 원</ProductInfo>
-              <ProductInfo>예약날짜 : {info.date} </ProductInfo>
+              <ProductInfo>위치 : {info.stores[0]?.storeAddress}</ProductInfo>
+              <ProductInfo>결제가격 : {info.totalPrice} 원</ProductInfo>
+              <ProductInfo>예약날짜 : {info.reservationDate} </ProductInfo>
               <ProductInfo>예약인원: {info.headCount} 인</ProductInfo>
             </RowDiv>
             <StatusDiv>
-              <ProductInfo> {info.orderStatus}</ProductInfo>
+              <ProductInfo>
+                {info.reservationStatus === 'beforeReservation'
+                  ? '예약완료'
+                  : '기간만료'}
+              </ProductInfo>
             </StatusDiv>
           </MyOrderInfo>
         ))}
@@ -63,8 +79,8 @@ const MyOrderInfo = styled.div`
   align-items: flex-start;
   align-items: center;
   margin: 0 0.3em;
-  height: 12em;
-  width: 40em;
+  height: 14em;
+  width: 42em;
   border-bottom: 1px solid #f0f0f0;
   box-shadow: 1px 1px 3px #d8d8d8;
   border-bottom: 1px solid #f0f0f0;
