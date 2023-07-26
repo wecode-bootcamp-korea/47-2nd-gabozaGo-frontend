@@ -55,7 +55,7 @@ const BookingCalandar = ({
   };
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/capacitycheck/${productId}`)
+    fetch(`${process.env.REACT_APP_API_URL}/order/capacitycheck/${productId}`)
       .then(res => res.json())
       .then(data => setBooks(data.capacityList));
   }, []);
