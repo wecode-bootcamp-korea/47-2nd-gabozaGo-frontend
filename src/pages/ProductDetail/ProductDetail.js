@@ -11,9 +11,9 @@ const ProductDetail = () => {
   const productId = params.id;
   const token = localStorage.getItem('token');
   const [activity, setActivity] = useState();
-  const [isLike, setIsLike] = useState(activity?.likes);
-  const price = Number(activity?.price.slice(0, 5)).toLocaleString();
-  const phoneNumber = activity?.phoneNumber.replace(
+  const [isLike, setIsLike] = useState();
+  const price = Number(activity?.price?.slice(0, 5)).toLocaleString();
+  const phoneNumber = activity?.phoneNumber?.replace(
     /^(\d{2,3})(\d{3,4})(\d{4})$/,
     `$1-$2-$3`,
   );
