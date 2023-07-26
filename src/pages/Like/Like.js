@@ -7,13 +7,7 @@ const Like = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch(`http://15.164.99.192:3000/likes`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        authorization: token,
-      },
-    })
+    fetch(`${process.env.REACT_APP_API_URL}/likes`)
       .then(res => res.json())
       .then(result => setLikes(result.data));
   }, []);

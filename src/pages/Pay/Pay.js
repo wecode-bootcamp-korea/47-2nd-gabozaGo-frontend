@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
+import PayResult from './PayResult';
 
 const Pay = ({ setPayModal, originDate, activityId, head }) => {
   const [order, setOrder] = useState([]);
-
+  const [resultModal, setResultModal] = useState(false);
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -27,16 +28,16 @@ const Pay = ({ setPayModal, originDate, activityId, head }) => {
         'Content-Type': 'application/json;charset=utf-8',
         authorization: token,
       },
-      body: {
+      body: JSON.stringify({
         storeActivityId: activityId,
         date: originDate,
         headCount: head,
-      },
+      }),
     }).then(res => {
-      if (res.message === 'RESERVATION_SUCCESS') {
-        setPayModal(false);
+      if (res.status === 201) {
+        setResultModal(true);
       } else if (res.message === 'KEY_ERROR') {
-      } else if (res.message === 'HEAD_COUNT_EXCEED') {
+      } else if (res.status === 422) {
         alert('예약 가능 인원을 초과하였습니다.');
         setPayModal(false);
       } else if (res.message === 'NOT_ENOUGH_POINT') {
@@ -61,6 +62,7 @@ const Pay = ({ setPayModal, originDate, activityId, head }) => {
           <PayButton onClick={() => payPoint()}>포인트 결제</PayButton>
           <PayButton>포인트 충전</PayButton>
         </ButtonBox>
+        {resultModal && <PayResult />}
         <CancelBtn
           onClick={() => {
             setPayModal(false);

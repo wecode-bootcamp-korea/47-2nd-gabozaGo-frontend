@@ -3,12 +3,24 @@ import { useState, useEffect } from 'react';
 
 const MyProfile = () => {
   const [profile, setProfile] = useState([]);
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch('data/myInfo.json')
+    fetch(`${process.env.REACT_APP_API_URL}/users/info`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: token,
+      },
+    })
       .then(res => res.json())
-      .then(data => setProfile(data.data));
+      .then(data => setProfile(data));
   }, []);
+
+  console.log(profile[0]);
+
+  const myPhone = profile[0]?.phoneNumber;
+  console.log(myPhone);
 
   return (
     <MyProfileBody>
@@ -17,10 +29,26 @@ const MyProfile = () => {
           <MyProfileInfo key={info.id}>
             <MyProfileImage src={info.images} />
             <RowDiv>
-              <ProductInfo>성함 : {info.userName}</ProductInfo>
-              <ProductInfo>전화번호 :{info.phoneNumber}</ProductInfo>
-              <ProductInfo>관심 지역 : {info.likeSpot}</ProductInfo>
-              <ProductInfo>관심 태그 : {info.likeTags}</ProductInfo>
+              <ProductInfo>성함 : {info.name}</ProductInfo>
+              <ProductInfo>
+                전화번호 :
+                {info.phoneNumber.replace(
+                  /^(\d{2,3})(\d{3,4})(\d{4})$/,
+                  `$1-$2-$3`,
+                )}
+              </ProductInfo>
+              <ProductInfo>
+                보유 포인트 : {info.point.slice(0, 6)} 원
+              </ProductInfo>
+              <ProductInfo>관심 지역 : {info.spot.name}</ProductInfo>
+              <ProductInfo>
+                관심 태그 :
+                {info.activities.map(activitiy => {
+                  return (
+                    <InfoTags key={activitiy.id}>{activitiy.name}, </InfoTags>
+                  );
+                })}{' '}
+              </ProductInfo>
             </RowDiv>
           </MyProfileInfo>
         ))}
@@ -34,14 +62,19 @@ export default MyProfile;
 const MyProfileBody = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const MyProfileIBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 44em;
+  justify-content: center;
+  width: 40em;
+  height: 28em;
   background-color: white;
   margin: 1em 2em;
+  border: 1px solid gray;
+  border-radius: 1em;
 `;
 
 const MyProfileInfo = styled.div`
@@ -50,8 +83,7 @@ const MyProfileInfo = styled.div`
   align-items: flex-start;
   align-items: center;
   margin: 0.5em 0.3em;
-
-  height: 10em;
+  height: 25em;
   border-bottom: 1px solid #f0f0f0;
 `;
 
@@ -75,4 +107,7 @@ const ProductInfo = styled.p`
   font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 1em;
+  display: flex;
 `;
+
+const InfoTags = styled.div``;
