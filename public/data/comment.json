@@ -1,39 +1,18 @@
 {
   "data": [
     {
-      "id": 1,
-      "images": "https://mypetlife.co.kr/9989/kakaotalk_20180720_165306472/",
-      "userName": "진이",
-      "userComment": "댕댕이와 함께 춤을.",
-      "rating": 5
+      "name": "이주현",
+      "profileImage": "http://k.kakaocdn.net/dn/b8LDW6/btqJVgfeCzj/DPBXSeE1h8vuPdkwUOlstK/img_640x640.jpg",
+      "rating": "4.00",
+      "userComment": "좋아요",
+      "images": "이미지이이\n"
     },
     {
-      "id": 2,
-      "images": "https://mypetlife.co.kr/9989/kakaotalk_20180720_165306472/",
-      "userName": "주현",
-      "userComment": "좋은여행 항상 감사합니다.",
-      "rating": 4
-    },
-    {
-      "id": 3,
-      "images": "https://mypetlife.co.kr/9989/kakaotalk_20180720_165306472/",
-      "userName": "동현",
-      "userComment": "항상 감사합니다.",
-      "rating": 3
-    },
-    {
-      "id": 4,
-      "images": "https://mypetlife.co.kr/9989/kakaotalk_20180720_165306472/",
-      "userName": "킴수",
-      "userComment": "fdsfdsfdsfdsf다.",
-      "rating": 2
-    },
-    {
-      "id": 5,
-      "images": "https://mypetlife.co.kr/9989/kakaotalk_20180720_165306472/",
-      "userName": "김타이타노르주",
-      "userComment": "좋은강ddfsdfsd의 항상 감사합니다.",
-      "rating": 1
+      "name": "하늘",
+      "profileImage": null,
+      "rating": "3.00",
+      "userComment": "별로에요",
+      "images": "이것봐라\n\n"
     }
   ]
 }

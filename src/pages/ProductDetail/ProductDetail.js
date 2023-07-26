@@ -2,21 +2,32 @@ import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import Comment from '../Review/Comment';
 import Review from '../Review/Review';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import BookingCalandar from '../BookingCalandar/BookingCalandar';
 
 const ProductDetail = () => {
   const params = useParams();
   const productId = params.id;
-  const token = localStorage.getItem('token');
   const [activity, setActivity] = useState();
-  const [isLike, setIsLike] = useState();
-  const price = Number(activity?.price?.slice(0, 5)).toLocaleString();
-  const phoneNumber = activity?.phoneNumber?.replace(
+  const [modal, setModal] = useState(false);
+  const [isLike, setIsLike] = useState(activity?.likes);
+  const token = localStorage.getItem('token');
+  const storeName = activity?.StoreName;
+  const storeActivityName = activity?.activityName;
+  const activityId = activity?.storeActivityId;
+  const price = Number(activity?.price.slice(0, 5)).toLocaleString();
+  const numPrice = Number(activity?.price.slice(0, 5));
+  const phoneNumber = activity?.phoneNumber.replace(
     /^(\d{2,3})(\d{3,4})(\d{4})$/,
     `$1-$2-$3`,
   );
+
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [location.pathname]);
 
   useEffect(() => {
     const headers = {
@@ -25,13 +36,14 @@ const ProductDetail = () => {
     if (token) {
       headers.authorization = token;
     }
-    fetch(`http://10.58.52.89:3000/detailMain/${productId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/detailMain/${productId}`, {
       method: 'GET',
       headers,
     })
       .then(res => res.json())
       .then(result => setActivity(result.data));
   }, [token, productId]);
+
   //예약관련
   const handleLike = () => {
     fetch(`${process.env.REACT_APP_API_URL}/likes/${productId}`, {
@@ -40,9 +52,7 @@ const ProductDetail = () => {
         'Content-Type': 'application/json;charset=utf-8',
         authorization: token,
       },
-    });
-    // .then(res => res.json());
-    // .then(result => console.log(result));
+    }).then(res => res.json());
   };
 
   const handleLikeButton = () => {
@@ -52,8 +62,6 @@ const ProductDetail = () => {
     // }
     handleLike();
   };
-
-  const [modal, setModal] = useState(false);
 
   return (
     <ProductDetailBody>
@@ -69,13 +77,23 @@ const ProductDetail = () => {
             <Rating>
               <Description>만족도 : {activity?.scoreAvg} 점</Description>
             </Rating>
+            <Description>가격 : {price} 원</Description>
             <RowDiv>
               <LikeButton onClick={handleLikeButton}>찜</LikeButton>
               <LikeButton>공유하기</LikeButton>
               <LikeButton onClick={() => setModal(true)}>예약하기</LikeButton>
             </RowDiv>
             <ModalBox>
-              {modal && <BookingCalandar setModal={setModal} />}
+              {modal && (
+                <BookingCalandar
+                  setModal={setModal}
+                  storeName={storeName}
+                  numPrice={numPrice}
+                  activityId={activityId}
+                  storeActivityName={storeActivityName}
+                  productId={productId}
+                />
+              )}
             </ModalBox>
           </ItemDescriptionBox>
           <DetailText>
@@ -87,7 +105,7 @@ const ProductDetail = () => {
         </ItemBox>
         <Review />
       </ProductBox>
-      <Comment />
+      <Comment productId={productId} />
     </ProductDetailBody>
   );
 };
@@ -198,5 +216,5 @@ const ModalBox = styled.div`
   position: absolute;
   z-index: 9999;
   left: 25%;
-  top: 20%;
+  top: 9%;
 `;

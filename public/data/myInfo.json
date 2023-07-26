@@ -1,12 +1,34 @@
-{
-  "data": [
-    {
-      "id": 1,
-      "images": "https://mypetlife.co.kr/9989/kakaotalk_20180720_165306472/",
-      "userName": "진이",
-      "phoneNumber": "01045678901",
-      "likeSpot": "제주도",
-      "likeTags": ["패러세일링", "스쿠버다이빙", "놀이3", "놀이4", "놀이5"]
-    }
-  ]
-}
+[
+  {
+    "id": 21,
+    "name": "서준수",
+    "phoneNumber": "01064211",
+    "point": "500000.00",
+    "spot": {
+      "id": 3,
+      "name": "서북부"
+    },
+    "activities": [
+      {
+        "id": 5,
+        "name": "수상스키"
+      },
+      {
+        "id": 6,
+        "name": "유람선"
+      },
+      {
+        "id": 7,
+        "name": "카약"
+      },
+      {
+        "id": 8,
+        "name": "스쿠버다이빙"
+      },
+      {
+        "id": 9,
+        "name": "제트스키"
+      }
+    ]
+  }
+]

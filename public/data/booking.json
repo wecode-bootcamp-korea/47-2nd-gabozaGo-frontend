@@ -6,39 +6,39 @@
     },
     {
       "date": "2023-07-26",
-      "headCountCapacity": 6
+      "headCountCapacity": 1
     },
     {
       "date": "2023-07-27",
-      "headCountCapacity": 6
+      "headCountCapacity": 2
     },
     {
       "date": "2023-07-28",
-      "headCountCapacity": 6
+      "headCountCapacity": 3
     },
     {
       "date": "2023-07-29",
-      "headCountCapacity": 6
+      "headCountCapacity": 4
     },
     {
       "date": "2023-07-30",
-      "headCountCapacity": 6
-    },
-    {
-      "date": "2023-07-31",
-      "headCountCapacity": 6
-    },
-    {
-      "date": "2023-08-01",
-      "headCountCapacity": 6
-    },
-    {
-      "date": "2023-08-02",
       "headCountCapacity": 0
     },
     {
+      "date": "2023-07-31",
+      "headCountCapacity": 0
+    },
+    {
+      "date": "2023-08-01",
+      "headCountCapacity": 0
+    },
+    {
+      "date": "2023-08-02",
+      "headCountCapacity": 1
+    },
+    {
       "date": "2023-08-03",
-      "headCountCapacity": 2
+      "headCountCapacity": 3
     },
     {
       "date": "2023-08-04",

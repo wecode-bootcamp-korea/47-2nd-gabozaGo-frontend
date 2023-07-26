@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { ImStarFull } from 'react-icons/im';
 
-const Comment = () => {
-  const [comment, setComment] = useState([]);
+const Comment = ({ productId }) => {
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    fetch('/data/comment.json')
+    fetch(`${process.env.REACT_APP_API_URL}/reviews/${productId}`)
       .then(res => res.json())
-      .then(data => setComment(data.data));
+      .then(data => setComments(data.data));
   }, []);
 
   const arr = [1, 2, 3, 4, 5];
@@ -17,13 +17,14 @@ const Comment = () => {
     <CommentBody>
       <CommentBox>
         <UserProfile>
-          {comment.map(info => {
+          {comments.map(info => {
+            const score = Math.floor(info.rating);
             return (
               <UserInfo key={`comment-${info.id}`}>
                 <RowDiv>
                   <ProfileBox>
-                    <UserImg src={info.images} />
-                    <UserName>{info.userName}</UserName>
+                    <UserImg src={info.profileImage} />
+                    <UserName>{info.name}</UserName>
                   </ProfileBox>
                   <AllStarBox>
                     <AllStar filled={true}>
@@ -37,7 +38,7 @@ const Comment = () => {
                       ))}
                     </BlueStar>
                   </AllStarBox>
-                  <UserRating>{info.rating} 점</UserRating>
+                  <UserRating>{score} 점</UserRating>
                 </RowDiv>
                 <UserComment>{info.userComment}</UserComment>
               </UserInfo>
