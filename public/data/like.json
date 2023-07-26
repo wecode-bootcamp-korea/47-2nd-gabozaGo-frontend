@@ -1,28 +1,52 @@
 {
   "data": [
     {
-      "id": 3,
-      "productId": 2,
-      "name": "물놀이이름",
-      "images": "images/1.png",
-      "location": "북동부",
-      "price": 50000
+      "storeActivityId": 1,
+      "storeName": "시원한 레저센터",
+      "spotName": "동북부",
+      "perPrice": "70000.00",
+      "activityName": "서핑",
+      "image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_01.jpg"
     },
     {
-      "id": 1,
-      "productId": 3,
-      "name": "물놀이이름",
-      "images": "images/2.png",
-      "location": "남동부",
-      "price": 40000
+      "storeActivityId": 2,
+      "storeName": "편리한 레저타운 ",
+      "spotName": "동북부",
+      "perPrice": "50000.00",
+      "activityName": "배낚시",
+      "image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Fish_01.jpg"
     },
     {
-      "id": 2,
-      "productId": 4,
-      "name": "물놀이이름",
-      "images": "images/3.png",
-      "location": "제주도",
-      "price": 300000
+      "storeActivityId": 3,
+      "storeName": "편리한 준수네 ",
+      "spotName": "동북부",
+      "perPrice": "120000.00",
+      "activityName": "요트",
+      "image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Boat_01.jpg"
+    },
+    {
+      "storeActivityId": 4,
+      "storeName": "친절한 주현이네 ",
+      "spotName": "동북부",
+      "perPrice": "70000.00",
+      "activityName": "글램핑",
+      "image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Glam_01.jpg"
+    },
+    {
+      "storeActivityId": 200,
+      "storeName": "시원한 레저타운 ",
+      "spotName": "서북부",
+      "perPrice": "70000.00",
+      "activityName": "패러세일링",
+      "image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_39.jpg"
+    },
+    {
+      "storeActivityId": 251,
+      "storeName": "편안한 레저센터 ",
+      "spotName": "서남부",
+      "perPrice": "70000.00",
+      "activityName": "서핑",
+      "image": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Surf_51.jpg"
     }
   ]
 }

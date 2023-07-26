@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-const Pay = () => {
+const Pay = ({ setPayModal, originDate, activityId, head }) => {
   const [order, setOrder] = useState([]);
   const token = localStorage.getItem('token');
+
+  // const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`data/order.json`, {
@@ -20,28 +23,33 @@ const Pay = () => {
   }, []);
 
   const payPoint = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/orders`, {
+    fetch(`${process.env.REACT_APP_API_URL}/order/point`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
         authorization: token,
       },
-      body: JSON.stringify({
-        userId: 1,
-        storeActivity: 1,
-        date: '2023-07-24',
-        headCount: 3,
-      }),
+      body: {
+        storeActivityId: activityId,
+        date: originDate,
+        headCount: head,
+      },
     }).then(res => {
       if (res.message === 'RESERVATION_SUCCESS') {
-      } else if (res.message === 'KET_ERROR') {
-        alert('요청에 누락된 정보가 있습니다');
+        setPayModal(false);
+      } else if (res.message === 'KEY_ERROR') {
       } else if (res.message === 'HEAD_COUNT_EXCEED') {
-        alert('예약 가능한 인원을 초과하였습니다.');
+        alert('예약 가능 인원을 초과하였습니다.');
+        setPayModal(false);
       } else if (res.message === 'NOT_ENOUGH_POINT') {
         alert('포인트가 부족합니다.');
       }
-    });
+      // if (res.status === 200) {
+      //   setPayModal(false);
+      // } else if (res.status === 401) {
+      //   navigate('/login');
+      // }
+    }, []);
   };
 
   return (
@@ -57,10 +65,16 @@ const Pay = () => {
           </PayDetail>
         ))}
         <ButtonBox>
-          <PayButton onClick={payPoint}>포인트 결제</PayButton>
+          <PayButton onClick={() => payPoint()}>포인트 결제</PayButton>
           <PayButton>카카오페이 결제</PayButton>
         </ButtonBox>
-        <CancelBtn> 취소하기 </CancelBtn>
+        <CancelBtn
+          onClick={() => {
+            setPayModal(false);
+          }}
+        >
+          취소하기
+        </CancelBtn>
       </PayBox>
     </PayBody>
   );
@@ -79,11 +93,12 @@ const PayBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40em;
+  width: 46em;
   height: 32em;
   background-color: #f0f0f3;
   padding: 2em;
   justify-content: space-between;
+  z-index: 30;
 `;
 
 const PageTitle = styled.h1``;

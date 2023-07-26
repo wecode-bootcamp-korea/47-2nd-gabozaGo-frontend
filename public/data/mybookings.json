@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "userId": 1,
+      "orderNumber": "2023_07_24_001",
+      "reservationDate": "2023-07-25T06:53:27.000Z",
+      "headCount": 4,
+      "totalPrice": "160000.00",
+      "reservationStatus": "beforeReservation",
+      "stores": [
+        {
+          "storeId": 300,
+          "imageUrl": "https://gabozago.s3.ap-northeast-2.amazonaws.com/image/Pa_59.jpg",
+          "storeName": "독특한 레저타운 ",
+          "storeAddress": "전라남도 목포시",
+          "storePhoneNumber": "99999999999"
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,15 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import GlobalStyle from '../../styles/GlobalStyle';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Nav = () => {
   const [searchText, setSearchText] = useState('');
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
 
   const token = localStorage.getItem('token');
 
@@ -40,7 +45,7 @@ const Nav = () => {
           {token && (
             <Link to="/mypage">
               <LikeIcon
-                src="images/heart.png"
+                src="/images/heart.png"
                 alt="찜 아이콘"
                 onClick={gotoLikePage}
               />

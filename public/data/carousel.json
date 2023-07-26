@@ -10,15 +10,19 @@
     },
     {
       "id": 3,
-      "imagee": "images/ca3.jpg"
+      "image": "images/ca3.jpg"
     },
     {
       "id": 4,
-      "image": "images/ca4.png"
+      "image": "images/ca4.jpg"
     },
     {
       "id": 5,
-      "image": "images/ca5.png"
+      "image": "images/ca5.jpg"
+    },
+    {
+      "id": 6,
+      "image": "images/ca6.jpg"
     }
   ]
 }
