@@ -17,7 +17,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     fetch('/data/detail.json')
-      // fetch(`https://reqres.in/api/detailMain/${activityId}`)
+      // fetch(`${process.env.REACT_APP_API_URL}/detailMain/${activityId}`)
       .then(res => res.json())
       .then(data => setActivity(data.data));
   }, []);

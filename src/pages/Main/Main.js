@@ -11,9 +11,10 @@ const Main = () => {
   const [product, setProduct] = useState([]);
   const [modal, setModal] = useState(false);
   const [spot, setSpot] = useState([]);
-  const token = localStorage.getItem('token');
   const [selectedSpot, setSelectedSpot] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const token = localStorage.getItem('token');
 
   const navigate = useNavigate();
 
@@ -41,9 +42,12 @@ const Main = () => {
     if (token) {
       headers.authorization = token;
     }
-    fetch(`http://10.58.52.224:3000/storeActivities/?spotId=${selectedSpot}`, {
-      headers,
-    })
+    fetch(
+      `${process.env.REACT_APP_API_URL}/storeActivities/?spotId=${selectedSpot}`,
+      {
+        headers,
+      },
+    )
       .then(res => res.json())
       .then(data => setProduct(data.data));
   }, [selectedSpot]);

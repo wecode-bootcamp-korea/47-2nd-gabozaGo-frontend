@@ -8,7 +8,7 @@ const Oauth = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://10.58.52.224:3000/users/signin?code=${CODE}`)
+    fetch(`${process.env.REACT_APP_API_URL}/users/signin?code=${CODE}`)
       .then(res => res.json())
       .then(data => {
         if (data && data.accessToken.newUser === false) {
