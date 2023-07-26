@@ -16,18 +16,18 @@ const BookingCalandar = ({
 }) => {
   const [value, onChange] = useState(new Date());
   const dateObject = new Date(value);
+  const originDate = dateObject.toISOString().slice(0, 10);
   dateObject.setDate(dateObject.getDate() + 1);
   const [books, setBooks] = useState([]);
-  const [payModal, setPayModal] = useState(false); //결제페이지 모달창
+  const [payModal, setPayModal] = useState(false);
   const [head, setHead] = useState(0);
-  const navigate = useNavigate();
   const token = localStorage.getItem('token');
-  const originDate = dateObject.toISOString().slice(0, 10);
   const findHead = books?.find(el => el.date === originDate)?.headCountCapacity;
   const bookingCount = Array.from({ length: findHead }, (v, i) => i + 1);
   const totalPrice = (Number(numPrice) * head).toLocaleString();
+  const navigate = useNavigate();
 
-  const disableDate = () => {
+  const disableButton = () => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const twoWeeksLater = new Date();
@@ -77,7 +77,7 @@ const BookingCalandar = ({
             {moment(value).format('YYYY-MM-DD')}
             <AbledCount>예약가능 인원수 : {findHead} 명</AbledCount>
             <SelectBox>
-              <Label htmlFor="count-select">예약 인원 수 :</Label>
+              <Label htmlFor="count-select">예약 인원 수 : </Label>
               <Select
                 name="count"
                 id="count-select"
@@ -94,7 +94,7 @@ const BookingCalandar = ({
             <TotalPrice>총가격 : {totalPrice}원</TotalPrice>
           </ProductBox>
 
-          <OrderBtn onClick={showAlert} disabled={!disableDate()}>
+          <OrderBtn onClick={showAlert} disabled={!disableButton()}>
             결제하기
           </OrderBtn>
           <ModalBox>

@@ -3,7 +3,7 @@ const FOOTER_MEMBER = [
     id: 1,
     name: 'FRONT',
     img: '/images/sujeong.png',
-    github: '/https://github.com/Kimsu10',
+    github: 'https://github.com/Kimsu10',
   },
   {
     id: 2,

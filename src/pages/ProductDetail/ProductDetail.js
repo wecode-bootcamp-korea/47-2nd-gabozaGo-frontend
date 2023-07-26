@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 import Comment from '../Review/Comment';
 import Review from '../Review/Review';
-import { useLocation, useParams } from 'react-router-dom';
-
 import BookingCalandar from '../BookingCalandar/BookingCalandar';
 
 const ProductDetail = () => {
@@ -44,7 +43,6 @@ const ProductDetail = () => {
       .then(result => setActivity(result.data));
   }, [token, productId]);
 
-  //예약관련
   const handleLike = () => {
     fetch(`${process.env.REACT_APP_API_URL}/likes/${productId}`, {
       method: 'POST',

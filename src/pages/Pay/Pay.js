@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 const Pay = ({ setPayModal, originDate, activityId, head }) => {
   const [order, setOrder] = useState([]);
-  const token = localStorage.getItem('token');
 
-  // const navigate = useNavigate();
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     fetch(`data/order.json`, {
@@ -44,11 +42,6 @@ const Pay = ({ setPayModal, originDate, activityId, head }) => {
       } else if (res.message === 'NOT_ENOUGH_POINT') {
         alert('포인트가 부족합니다.');
       }
-      // if (res.status === 200) {
-      //   setPayModal(false);
-      // } else if (res.status === 401) {
-      //   navigate('/login');
-      // }
     }, []);
   };
 
@@ -66,7 +59,7 @@ const Pay = ({ setPayModal, originDate, activityId, head }) => {
         ))}
         <ButtonBox>
           <PayButton onClick={() => payPoint()}>포인트 결제</PayButton>
-          <PayButton>카카오페이 결제</PayButton>
+          <PayButton>포인트 충전</PayButton>
         </ButtonBox>
         <CancelBtn
           onClick={() => {
