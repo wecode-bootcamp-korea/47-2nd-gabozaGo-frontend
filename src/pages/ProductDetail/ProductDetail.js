@@ -40,16 +40,16 @@ const ProductDetail = () => {
         'Content-Type': 'application/json;charset=utf-8',
         authorization: token,
       },
-    })
-      .then(res => res.json())
-      .then(result => console.log(result));
+    });
+    // .then(res => res.json());
+    // .then(result => console.log(result));
   };
 
   const handleLikeButton = () => {
-    setIsLike(prev => !!!prev);
-    if (!token) {
-      return;
-    }
+    // setIsLike(prev => !!!prev);
+    // if (!token) {
+    //   return;
+    // }
     handleLike();
   };
 

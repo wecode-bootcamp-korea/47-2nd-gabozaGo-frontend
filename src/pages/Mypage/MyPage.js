@@ -11,6 +11,12 @@ const MyPage = () => {
     setisActive(name);
   };
 
+  const activeTab = {
+    MyProfile: <MyProfile />,
+    Like: <Like />,
+    MyOrder: <MyOrder />,
+  };
+
   return (
     <MyPageBody>
       <MyPageBox>
@@ -23,9 +29,10 @@ const MyPage = () => {
             MyOrder
           </Category>
         </MyCategory>
-        {isActive === 'MyProfile' && <MyProfile />}
+        {activeTab[isActive]}
+        {/* {isActive === 'MyProfile' && <MyProfile />}
         {isActive === 'Like' && <Like />}
-        {isActive === 'MyOrder' && <MyOrder />}
+        {isActive === 'MyOrder' && <MyOrder />} */}
       </MyPageBox>
     </MyPageBody>
   );
