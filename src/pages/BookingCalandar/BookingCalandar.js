@@ -1,10 +1,10 @@
-import { styled } from 'styled-components';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import moment from 'moment';
 import { useEffect, useState } from 'react';
-import Pay from '../Pay/Pay';
 import { useNavigate } from 'react-router-dom';
+import Calendar from 'react-calendar';
+import moment from 'moment';
+import Pay from '../Pay/Pay';
+import { styled } from 'styled-components';
+import 'react-calendar/dist/Calendar.css';
 
 const BookingCalandar = ({
   setModal,
@@ -45,12 +45,12 @@ const BookingCalandar = ({
   const showAlert = () => {
     if (head === 0) {
       alert('예약 인원이 꽉 찼습니다.');
-      // setPayModal(false);
-      // } else if (!token) {
-      //   alert('로그인이 필요합니다.');
-      //   navigate('/login');
-      // } else {
-      //   setPayModal(true);
+      setPayModal(false);
+    } else if (!token) {
+      alert('로그인이 필요합니다.');
+      navigate('/login');
+    } else {
+      setPayModal(true);
     }
   };
 
@@ -94,14 +94,7 @@ const BookingCalandar = ({
             <TotalPrice>총가격 : {totalPrice}원</TotalPrice>
           </ProductBox>
 
-          <OrderBtn
-            onClick={() => {
-              setPayModal(true);
-              // setModal(false);
-              showAlert();
-            }}
-            disabled={!disableDate()}
-          >
+          <OrderBtn onClick={showAlert} disabled={!disableDate()}>
             결제하기
           </OrderBtn>
           <ModalBox>
