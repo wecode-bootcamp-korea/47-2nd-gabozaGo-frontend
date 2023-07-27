@@ -2,7 +2,7 @@ const FOOTER_MEMBER = [
   {
     id: 1,
     name: 'FRONT',
-    img: 'images/sujeong.png',
+    img: '/images/sujeong.png',
     github: '/https://github.com/Kimsu10',
   },
   {
@@ -14,14 +14,14 @@ const FOOTER_MEMBER = [
   {
     id: 3,
     name: 'BACK',
-    img: 'images/juhyeon.png',
-    github: '/https://github.com/sioscorial',
+    img: '/images/juhyeon.png',
+    github: 'https://github.com/sioscorial',
   },
   {
     id: 4,
     name: 'BACK',
-    img: 'images/junsu.png',
-    github: '/https://github.com/joonsooha123',
+    img: '/images/junsu.png',
+    github: 'https://github.com/joonsooha123',
   },
 ];
 export default FOOTER_MEMBER;
