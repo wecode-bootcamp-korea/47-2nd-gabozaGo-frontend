@@ -10,6 +10,7 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 import PayResult from './pages/Pay/PayResult';
 import Pay from './pages/Pay/Pay';
 import MyPage from './pages/Mypage/MyPage';
+import Calendar from 'react-calendar';
 
 const Router = () => {
   return (
@@ -24,6 +25,7 @@ const Router = () => {
         <Route path="/payResult" element={<PayResult />} />
         <Route path="/pay" element={<Pay />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/calendar" element={<Calendar />} />
       </Routes>
       <Footer />
     </BrowserRouter>

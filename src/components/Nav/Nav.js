@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import GlobalStyle from '../../styles/GlobalStyle';
 import { useEffect, useState } from 'react';
 
 const Nav = () => {
@@ -28,7 +27,6 @@ const Nav = () => {
 
   return (
     <>
-      <GlobalStyle />
       <NavBody>
         <NavList>
           <Logo>
