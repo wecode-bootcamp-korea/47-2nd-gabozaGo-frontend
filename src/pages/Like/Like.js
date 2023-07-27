@@ -2,38 +2,60 @@ import { styled } from 'styled-components';
 import { useState, useEffect } from 'react';
 
 const Like = () => {
-  const [Likes, setLikes] = useState([]);
+  const [likes, setLikes] = useState([]);
 
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch('data/like.json')
+    fetch(`http://15.164.99.192:3000/likes`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: token,
+      },
+    })
       .then(res => res.json())
-      .then(data => setLikes(data.data));
+      .then(result => setLikes(result.data));
   }, []);
 
+  const handleDisLike = id => {
+    fetch(`${process.env.REACT_APP_API_URL}/likes/${id}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: token,
+      },
+    });
+  };
+
   const handleDelete = id => {
-    const newLike = Like.filter(item => item.id !== id);
+    const newLike = likes.filter(item => item.storeActivityId !== id);
     setLikes(newLike);
+    handleDisLike(id);
   };
 
   return (
     <LikeBody>
       <LikeIBox>
-        {Likes.map(info => (
-          <LikeInfo key={info.id}>
-            <LikeIImage src={info.images} />
-            <RowDiv>
-              <ProductInfo>{info.name}</ProductInfo>
-              <ProductInfo>{info.location}</ProductInfo>
-              <ProductInfo>{info.price} 원</ProductInfo>
-            </RowDiv>
-            <ColumnDiv>
-              <DeleteBtn onClick={() => handleDelete(info.id)}>✕</DeleteBtn>
-              <GotoDatailBtn>상세페이지로</GotoDatailBtn>
-            </ColumnDiv>
-          </LikeInfo>
-        ))}
+        {likes.map(info => {
+          const parsedPrice = parseInt(info.perPrice).toLocaleString();
+          return (
+            <LikeInfo key={info.storeActivityId}>
+              <LikeIImage src={info.image} />
+              <RowDiv>
+                <ProductInfo>{info.storeName}</ProductInfo>
+                <ProductInfo>{info.spotName}</ProductInfo>
+                <ProductInfo>{parsedPrice} 원</ProductInfo>
+              </RowDiv>
+              <ColumnDiv>
+                <DeleteBtn onClick={() => handleDelete(info.storeActivityId)}>
+                  ✕
+                </DeleteBtn>
+                <GotoDatailBtn>상세페이지로</GotoDatailBtn>
+              </ColumnDiv>
+            </LikeInfo>
+          );
+        })}
       </LikeIBox>
     </LikeBody>
   );
